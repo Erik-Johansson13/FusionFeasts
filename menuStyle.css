@@ -1,0 +1,212 @@
+/*Global Changes*/
+body{
+    display: flex;
+    flex-direction: column;
+}
+*{
+    margin: 0;
+}
+/*Logo*/
+.logoHolder{
+    height: 12vh;
+    width: 20vw;
+    margin: 0;
+    margin-left: 5vw;
+}
+.logo{
+    position: absolute;
+    width: 15vw;
+}
+.logo1{
+    opacity: 1;
+    transition: opacity 0.3s ease-in 500ms;
+}
+.logo2{
+    opacity: 0;
+    transition: opacity 0.1s ease-in 0ms;
+}
+.logoText{
+    font-family: fantasy;
+    font-size: 4vw;
+    color: white;
+    opacity: 0;
+    transition: opacity 0.3s ease 500ms;
+}
+/*Content Division*/
+.top{
+    display: flex;
+    flex-direction: column;
+    font-size: 400%;
+}
+.main{
+    display: flex;
+    flex-direction: row;
+}
+/*Header*/
+.header{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    margin: 0;
+    height: 15vh;
+    background-color: rgb(0, 0, 0);
+    transition: background-color 0.5s ease-in 50ms;
+}
+.glow{
+    height: 15vh;
+    width: 100%;
+    margin: 0;
+    opacity: 0;
+    position: absolute;
+    transition: opacity 0.1s ease 50ms;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+.header:hover{
+    background-color: rgb(161, 255, 175);
+}
+.header:hover .logo1{
+    opacity: 0;
+    transition-duration: 0.1s;
+    transition-delay: 0ms;
+}
+.header:hover .logo2{
+    opacity: 1;
+    transition-duration: 0.5s;
+    transition-delay: 500ms;
+}
+.header:hover .logoText{
+    opacity: 1;
+}
+.header:hover .glow{
+    opacity: 1;
+    animation: staggerGlow 2s ease 200ms infinite running none;
+}
+/*navigation*/
+.banner{
+    margin: 0;
+    height: 10vh;
+    background-color: black;
+}
+.banner .nav{
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding: 0;
+}
+.banner .nav li{
+    float: left;
+    text-align: center;
+    color: rgb(161, 255, 175);
+    border-right: 2px solid rgb(161, 255, 175);
+    font-size: 3vw;
+    padding-left: 10px;
+    padding-right: 10px;
+    transition: background-color 0.5s ease-in 50ms;
+}
+.banner .nav li a{
+    display: block;
+    margin: 0;
+    text-decoration: none;
+    color: rgb(161, 255, 175);
+    transition: color 0.5s ease-in 50ms,
+                text-shadow 0.5s ease-in 50ms;
+}
+.banner .nav li:last-child{
+    border: none;
+}
+.banner .nav li:hover a{
+    color: white;
+    text-shadow: 0px 0px 20px green;
+}
+/*Sidebar, not in use*/
+/*
+.sideBar{
+    position: absolute;
+    top: 25vh;
+    width: 5vw;
+    height: 175vh;
+    background-color: blueviolet;
+    background-color: black;
+    transition: width 1s ease 50ms;
+    box-shadow: 0 0 5px rgb(0, 0, 0);
+}
+.sideBar:hover{
+    width: 15vw;
+}
+*/
+/*Main Content: Table*/
+.menu{
+    border-collapse: collapse;
+    font-size: 3vw;
+    margin-top: 5vw;
+    margin-bottom: 5vw;
+    color: rgb(161, 255, 175);
+}
+.menu thead{
+    background-color: rgb(161, 255, 175);
+}
+.menu th{
+    border: 2px double rgb(161, 255, 175);
+    padding: 3vw;
+    color: rgb(0, 0, 0);
+    animation: appear 3s ease 50ms running forwards;
+}
+.menu .c1{
+    padding-right: 30vw;
+}
+.menu .c2{
+}
+.menu tbody td:last-child{
+    text-align: right;
+    padding-right: 3vw;
+    animation: floatInRight 3s ease 50ms running forwards;
+}
+.menu tbody td:first-child{
+    padding-left: 3vw;
+    border-right: 2px double rgb(161, 255, 175);
+    animation: floatInLeft 3s ease 50ms running forwards;
+}
+.content{
+    margin: 0;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(229, 255, 0);
+    background-color: black;
+}
+
+/*Animations*/
+@keyframes floatInLeft{
+    0% {transform: translatex(-10vw);
+            opacity: 0;}
+    100% {transform: translatex(0);
+            opacity: 1;}
+}
+@keyframes floatInRight{
+    0% {transform: translatex(10vw);
+            opacity: 0;}
+    100% {transform: translatex(0);
+            opacity: 1;}
+}
+@keyframes appear {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes staggerGlow{
+    0% { box-shadow: 0 0 20px rgb(81, 255, 81); }
+    10% { box-shadow: 0 0 30px rgb(81, 255, 81); }
+    22% { box-shadow: 0 0 10px rgb(81, 255, 81); }
+    35% { box-shadow: 0 0 40px rgb(81, 255, 81); }
+    40% { box-shadow: 0 0 5px rgb(81, 255, 81); }
+    50% { box-shadow: 0 0 25px rgb(81, 255, 81); }
+    63% { box-shadow: 0 0 20px rgb(81, 255, 81); }
+    68% { box-shadow: 0 0 30px rgb(81, 255, 81); }
+    77% { box-shadow: 0 0 10px rgb(81, 255, 81); }
+    85% { box-shadow: 0 0 40px rgb(81, 255, 81); }
+    90% { box-shadow: 0 0 5px rgb(81, 255, 81); }
+    100% { box-shadow: 0 0 25px rgb(81, 255, 81); }
+}

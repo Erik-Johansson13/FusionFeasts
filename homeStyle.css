@@ -1,3 +1,4 @@
+/*Global Changes*/
 body{
     display: flex;
     flex-direction: column;
@@ -5,19 +6,33 @@ body{
 *{
     margin: 0;
 }
-.logo{
-    height: 80%;
+/*Logo*/
+.logoHolder{
+    height: 12vh;
+    width: 20vw;
     margin: 0;
     margin-left: 5vw;
+}
+.logo{
+    position: absolute;
+    width: 15vw;
+}
+.logo1{
+    opacity: 1;
     transition: opacity 0.3s ease-in 500ms;
+}
+.logo2{
+    opacity: 0;
+    transition: opacity 0.1s ease-in 0ms;
 }
 .logoText{
     font-family: fantasy;
+    font-size: 4vw;
     color: white;
     opacity: 0;
-    transition: opacity 1s ease 500ms;
+    transition: opacity 0.3s ease 500ms;
 }
-
+/*Content Division*/
 .top{
     display: flex;
     flex-direction: column;
@@ -26,8 +41,8 @@ body{
 .main{
     display: flex;
     flex-direction: row;
-    flex-basis: 90vw;
 }
+/*Header*/
 .header{
     display: flex;
     flex-wrap: wrap;
@@ -39,7 +54,7 @@ body{
 }
 .glow{
     height: 15vh;
-    width: 100vw;
+    width: 100%;
     margin: 0;
     opacity: 0;
     position: absolute;
@@ -49,12 +64,17 @@ body{
     justify-content: center;
 }
 .header:hover{
-    background-color: rgb(144, 245, 130);
+    background-color: rgb(161, 255, 175);
 }
-.header:hover .logo{
+.header:hover .logo1{
     opacity: 0;
     transition-duration: 0.1s;
     transition-delay: 0ms;
+}
+.header:hover .logo2{
+    opacity: 1;
+    transition-duration: 0.5s;
+    transition-delay: 500ms;
 }
 .header:hover .logoText{
     opacity: 1;
@@ -63,28 +83,113 @@ body{
     opacity: 1;
     animation: staggerGlow 2s ease 200ms infinite running none;
 }
+/*navigation*/
 .banner{
     margin: 0;
     height: 10vh;
-    background-color: rgb(0, 255, 85);
     background-color: black;
 }
+.banner .nav{
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding: 0;
+}
+.banner .nav li{
+    float: left;
+    text-align: center;
+    color: rgb(161, 255, 175);
+    border-right: 2px solid rgb(161, 255, 175);
+    font-size: 3vw;
+    padding-left: 10px;
+    padding-right: 10px;
+    transition: background-color 0.5s ease-in 50ms;
+}
+.banner .nav li a{
+    display: block;
+    margin: 0;
+    text-decoration: none;
+    color: rgb(161, 255, 175);
+    transition: color 0.5s ease-in 50ms,
+                text-shadow 0.5s ease-in 50ms;
+}
+.banner .nav li:last-child{
+    border: none;
+}
+.banner .nav li:hover a{
+    color: white;
+    text-shadow: 0px 0px 20px green;
+}
+/*Sidebar, not in use*/
+/*
 .sideBar{
-    flex-basis: 5vw;
-    height: 75vh;
+    position: absolute;
+    top: 25vh;
+    width: 5vw;
+    height: 175vh;
     background-color: blueviolet;
     background-color: black;
-    transition: flex-basis 1s ease 50ms;
+    transition: width 1s ease 50ms;
+    box-shadow: 0 0 5px rgb(0, 0, 0);
+}
+.sideBar:hover{
+    width: 15vw;
+}
+*/
+/*Main Content*/
+.image1{
+    width: 30vw;
+    height: fit-content;
+}
+.image2{
+    width: 30vw;
+    height: fit-content;
+}
+.image3{
+    width: 25vw;
+    height: fit-content;
+}
+.item{
+    margin: 7vw;
+    margin-top: 3vw;
+    width: 80vw;
+    opacity: 0;
+    margin-left: 15vw;
+    margin-bottom: 3vw;
+    flex-direction: column;
+    animation: floatIn 3s ease 50ms running forwards;
+    color: white;
+}
+.item1{
+    display: flex;
+    flex-direction: row-reverse;
+}
+.item2{
+    display: flex;
+    flex-direction: row;
+}
+.item3{
+    display: flex;
+    flex-direction: row-reverse;
+}
+.text{
+    margin: 5vw;
+    font-size: 2vw;
 }
 .content{
     margin: 0;
-    height: 75vh;
+    height: 175vh;
     width: 100%;
     background-color: rgb(229, 255, 0);
     background-color: black;
 }
-.sideBar:hover{
-    flex-basis: 15vw;
+
+/*Animations*/
+@keyframes floatIn{
+    0% {transform: translateY(5vw);
+            opacity: 0;}
+    100% {transform: translateY(0);
+            opacity: 1;}
 }
 
 @keyframes staggerGlow{
