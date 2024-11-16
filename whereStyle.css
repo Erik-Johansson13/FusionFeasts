@@ -6,6 +6,7 @@ body{
 }
 *{
     margin: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 /*Logo*/
 .logoHolder{
@@ -109,6 +110,23 @@ body{
     opacity: 1;
     transition: background-color 0.5s ease-in 50ms;
 }
+.banner .nav li:last-child span{
+    opacity: 0;
+    background-color: red;
+    color: white;
+    border-radius: 10px;
+    transition: opacity 0.5s ease 50ms,
+                content-visibility 0.5s ease 500ms;
+    position: absolute;
+    content-visibility: hidden;
+    top: 10px;
+    left: 30vw;
+    padding: 2vw;
+}
+.banner .nav li:last-child:hover span{
+    content-visibility: visible;
+    opacity: 1;
+}
 .banner .nav li a{
     display: block;
     margin: 0;
@@ -159,6 +177,12 @@ body{
     grid-template-columns: 2fr 5fr;
     width: 100%;
 }
+.overHolder div:first-child h2{
+    text-align: center;
+    margin-left: 5vw;
+    margin-bottom: 40px;
+    color: white;
+}
 .openTimes{
     margin-left: 5vw;
     margin-bottom: 5vw;
@@ -191,12 +215,14 @@ body{
 .adressHolder{
     margin-right: 10vw;
     margin-left: 10vw;
-    margin-top: 0;
+    margin-top: 50px;
+    opacity: 0;
     padding: 3vw;
     height: 20vw;
     width: 30vw;
     background-color: white;
     border-radius: 20px;
+    animation: floatInRight 2s ease 50ms running forwards;
 }
 .adressHolder p{
     margin-top: 2vw;
