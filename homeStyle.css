@@ -12,6 +12,8 @@ body{
     width: 20vw;
     margin: 0;
     margin-left: 5vw;
+    display: flex;
+    align-items: center;
 }
 .logo{
     position: absolute;
@@ -48,12 +50,12 @@ body{
     flex-wrap: wrap;
     align-content: center;
     margin: 0;
-    height: 15vh;
+    height: 8vw;
     background-color: rgb(0, 0, 0);
     transition: background-color 0.5s ease-in 50ms;
 }
 .glow{
-    height: 15vh;
+    height: 8vw;
     width: 100%;
     margin: 0;
     opacity: 0;
@@ -113,8 +115,14 @@ body{
     transition: color 0.5s ease-in 50ms,
                 text-shadow 0.5s ease-in 50ms;
 }
+.banner .nav span{
+    position: absolute;
+}
 .banner .nav li:last-child{
     border: none;
+}
+.banner .nav li:nth-child(1){
+    text-shadow: 0 0 20px rgb(255, 255, 255);
 }
 .banner .nav li:hover a{
     color: white;
@@ -154,7 +162,6 @@ body{
     margin-top: 3vw;
     width: 80vw;
     opacity: 0;
-    margin-left: 15vw;
     margin-bottom: 3vw;
     flex-direction: column;
     animation: floatIn 3s ease 50ms running forwards;
@@ -163,14 +170,17 @@ body{
 .item1{
     display: flex;
     flex-direction: row-reverse;
+    animation: floatInLeft 3s ease 50ms running forwards;
 }
 .item2{
     display: flex;
     flex-direction: row;
+    animation: floatInRight 3s ease 50ms running forwards;
 }
 .item3{
     display: flex;
     flex-direction: row-reverse;
+    animation: floatInLeft 3s ease 50ms running forwards;
 }
 .text{
     margin: 5vw;
@@ -185,10 +195,16 @@ body{
 }
 
 /*Animations*/
-@keyframes floatIn{
-    0% {transform: translateY(5vw);
+@keyframes floatInLeft{
+    0% {transform: translatex(-5vw);
             opacity: 0;}
-    100% {transform: translateY(0);
+    100% {transform: translatex(0);
+            opacity: 1;}
+}
+@keyframes floatInRight{
+    0% {transform: translatex(5vw);
+            opacity: 0;}
+    100% {transform: translatex(0);
             opacity: 1;}
 }
 

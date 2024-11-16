@@ -123,7 +123,7 @@ body{
 .banner .nav li:last-child{
     border: none;
 }
-.banner .nav li:nth-child(3){
+.banner .nav li:nth-child(2){
     text-shadow: 0 0 20px rgb(255, 255, 255);
 }
 .banner .nav li:hover a{
@@ -146,117 +146,126 @@ body{
     width: 15vw;
 }
 */
-/*Main Content: Table*/
-.infoTag{
-    color: rgb(0, 0, 0);
-    font-family: monospace;
-    transform: translateX(-14vw) translateY(8vw);
-    font-size: 1.7vw;
-    font-weight: bolder;
-}
-.menu{
-    border-collapse: collapse;
-    border: 2px solid rgb(161, 255, 175);
-    font-size: 3vw;
+/*Main Content: Map*/
+.main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-top: 5vw;
-    height: 40vw;
-    width: 60vw;
-    color: rgb(161, 255, 175);
+    margin-bottom: 5vw;
 }
-.menu thead{
-    background-color: rgb(161, 255, 175);
+.overHolder{
+    display: grid;
+    grid-template-columns: 2fr 5fr;
+    width: 100%;
 }
-.menu th{
-    border: 2px double rgb(161, 255, 175);
-    padding: 3vw;
-    opacity: 0;
-    color: rgb(0, 0, 0);
-    animation: appear 3s ease 50ms running forwards;
+.openTimes{
+    margin-left: 5vw;
+    margin-bottom: 5vw;
+    color: white;
+    border-collapse: collapse;
+    border: 2px solid white;
+    width: 35vw;
+    height: 30vh;
+    font-size: 2vw;
 }
-.menu .c1{
-    padding-right: 30vw;
+.openTimes td{
+    padding-top: 2vw;
+    padding-bottom: 2vw;
+    border: 2px solid white;
 }
-.menu tbody td:last-child{
-    text-align: right;
-    padding-right: 3vw;
-    opacity: 0;
-    animation: floatInRight 3s ease 50ms running forwards;
+.openTimes td:nth-child(1){
+    padding-left: 2vw;
 }
-.menu tbody td:first-child{
-    padding-left: 3vw;
-    opacity: 0;
-    border-right: 2px double rgb(161, 255, 175);
-    transition: color 1s ease 50ms,
-                text-shadow 1s ease 50ms;
-    animation: floatInLeft 3s ease 50ms running forwards;
-}
-.row .toolTip{
-    color: black;
-    opacity: 0;
-    width: 10vw;
-    font-size: 1vw;
-    font-family: sans-serif;
+.openTimes thead tr:nth-child(1){
     background-color: white;
-    border: 0px solid black;
-    border-radius: 5px;
-    float: right;
-    padding: 1vw;
-    transition: opacity 0.2s ease 50ms;
-    position: absolute;
-}
-.row:hover .toolTip{
-    opacity: 1;
-}
-.row:hover td:first-child{
-    opacity: 1;
     color: black;
-    text-shadow: 0 0 20px rgb(194, 255, 194);
 }
-.row1 .toolTip{
-    transform: translateY(-2vw) translateX(-16vw);
+.openTimes td:nth-child(2){
+    text-align: center;
+    width: 15vw;
 }
-.row2 .toolTip{
-    transform: translateY(-8vw) translateX(-16vw);
+.openTimes th{
+    border: 2px solid white;
 }
-.row3 .toolTip{
-    transform: translateY(-14vw) translateX(-16vw);
-}
-.row4 .toolTip{
-    transform: translateY(-20vw) translateX(-16vw);
-}
-.row5 .toolTip{
-    transform: translateY(-26vw) translateX(-16vw);
-}
-.map{
-    border: 0 solid black;
+.adressHolder{
+    margin-right: 10vw;
+    margin-left: 10vw;
+    margin-top: 0;
+    padding: 3vw;
+    height: 20vw;
+    width: 30vw;
+    background-color: white;
     border-radius: 20px;
+}
+.adressHolder p{
+    margin-top: 2vw;
 }
 .content{
     margin: 0;
     height: 100vh;
     width: 100%;
     display: flex;
-    justify-content: flex-start;
-    align-content: center;
-    align-items: center;
+    margin-top: 5vh;
     flex-direction: column;
+    justify-content: start;
     background-color: rgb(229, 255, 0);
     background-color: black;
+}
+.infoTag{
+    color: white;
+    opacity: 0;
+    animation: appear 0.5s ease 1s running forwards;
+    text-align: center;
+    font-size: 30px;
+}
+.map{
+    border: 0 solid black;
+}
+.filler{
+    width: 100%;
+    height: 10vh;
+}
+.content .white:nth-child(1) .filler{
+    background: rgb(0,0,0);
+    background: linear-gradient(180deg, rgba(0,0,0,1) 35%, rgba(121,121,121,1) 100%);
+    transform: translateY(-9vh);
+    animation: floatInDown 1s cubic-bezier(0.83, 0.42, 0.77, 0.7) 0ms running forwards;
+}
+.content .white:nth-child(3) .filler{
+    background: rgb(0,0,0);
+    background: linear-gradient(360deg, rgba(0,0,0,1) 35%, rgba(121,121,121,1) 100%);
+    transform: translateY(9vh);
+    animation: floatInUp 1s cubic-bezier(0.83, 0.42, 0.77, 0.7) 0ms running forwards;
+}
+.white{
+    background-color: rgb(121, 121, 121,1);
+    width: 100%;
+    height: 10vh;
 }
 
 /*Animations*/
 @keyframes floatInLeft{
-    0% {transform: translatex(-3vw);
+    0% {transform: translatex(-10vw);
             opacity: 0;}
     100% {transform: translatex(0);
             opacity: 1;}
 }
 @keyframes floatInRight{
-    0% {transform: translatex(3vw);
+    0% {transform: translatex(10vw);
             opacity: 0;}
     100% {transform: translatex(0);
             opacity: 1;}
 }
+@keyframes floatInDown{
+    0% {transform: translatey(-9vh);}
+    100% {transform: translatey(-1vh);}
+}
+@keyframes floatInUp{
+    0% {transform: translatey(9vh);}
+    100% {transform: translatey(1vh);}
+}
+
 @keyframes appear {
     from {opacity: 0;}
     to {opacity: 1;}
